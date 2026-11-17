@@ -5,6 +5,7 @@ import sys, subprocess, numpy as np, os, re
 from faster_whisper import WhisperModel
 
 src, S, E, cam, game, out = sys.argv[1:7]
+GS = sys.argv[7] if len(sys.argv) > 7 else None  # opc: igra dolje iz drugog trenutka (b-roll)
 S, E = float(S), float(E); D = E - S
 FF = subprocess.run(["brew", "--prefix", "ffmpeg-full"], capture_output=True, text=True).stdout.strip() + "/bin/ffmpeg"
 if not os.path.exists(FF): FF = "ffmpeg"
@@ -56,10 +57,10 @@ ZI = Z.replace("t,", "it,").replace("(t-", "(it-")
 cx, cy, cw, ch = cam.split(":"); gx, gy, gw, gh = game.split(":")
 fc = (f"[0:v]crop={cw}:{ch}:{cx}:{cy},scale=1080:960,fps=60,"
       f"zoompan=z='1.03+{ZI}':d=1:x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2':s=1080x960:fps=60,unsharp=5:5:1.0[top];"
-      f"[0:v]crop={gw}:{gh}:{gx}:{gy},scale=1080:960[bot];"
+      f"[{1 if GS else 0}:v]crop={gw}:{gh}:{gx}:{gy},scale=1080:960,fps=60[bot];"
       f"[top][bot]vstack,fps=60,ass={work}/c.ass:fontsdir=/System/Library/Fonts/Supplemental[v];")
 fc += "[0:a]anull[a]"
-subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-ss", str(S), "-t", str(D), "-i", src, "-filter_complex", fc,
+subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-ss", str(S), "-t", str(D), "-i", src] + (["-ss", GS, "-t", str(D), "-i", src] if GS else []) + ["-filter_complex", fc,
                 "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p",
                 "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out], check=True)
 print(out, "| punch:", [round(p, 1) for p in peaks])
