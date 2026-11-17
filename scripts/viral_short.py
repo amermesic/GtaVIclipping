@@ -1,4 +1,4 @@
-# Viral streamer short (stil iz RULES.md v2): streamer GORE 50%, igra DOLJE 50%,
+# Viral streamer short (BEZ sintetickih SFX - Amer 2026-11-17) (stil iz RULES.md v2): streamer GORE 50%, igra DOLJE 50%,
 # 1 rijec Impact na spoju, pop animacija, punch-zoom + shake + flash + boom na glasnim momentima.
 # Usage: python3 viral_short.py SRC START END CAM(x:y:w:h) GAME(x:y:w:h) OUT.mp4
 import sys, subprocess, numpy as np, os, re
@@ -49,17 +49,16 @@ Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
 open(f"{work}/c.ass", "w").write(ass)
 
 # zoom/shake/flash izrazi
-Z = "+".join(f"0.16*exp(-6*(t-{p:.2f}))*gte(t,{p:.2f})" for p in peaks) or "0"
-SH = "+".join(f"18*sin(t*90)*exp(-14*(t-{p:.2f}))*gte(t,{p:.2f})" for p in peaks) or "0"
-FL = "+".join(f"0.22*exp(-16*(t-{p:.2f}))*gte(t,{p:.2f})" for p in peaks) or "0"
+Z = "+".join(f"0.08*exp(-5*(t-{p:.2f}))*gte(t,{p:.2f})" for p in peaks) or "0"
+SH = "0" or "+".join(f"18*sin(t*90)*exp(-14*(t-{p:.2f}))*gte(t,{p:.2f})" for p in peaks) or "0"
+FL = "0" or "+".join(f"0.22*exp(-16*(t-{p:.2f}))*gte(t,{p:.2f})" for p in peaks) or "0"
+ZI = Z.replace("t,", "it,").replace("(t-", "(it-")
 cx, cy, cw, ch = cam.split(":"); gx, gy, gw, gh = game.split(":")
-fc = (f"[0:v]crop={cw}:{ch}:{cx}:{cy},scale=w='trunc(1080*(1.04+{Z})/2)*2':h='trunc(960*(1.04+{Z})/2)*2':eval=frame,"
-      f"crop=1080:960:x='(iw-1080)/2+({SH})':y='(ih-960)/2',eq=brightness='{FL}':eval=frame[top];"
-      f"[0:v]crop={gw}:{gh}:{gx}:{gy},scale=w='trunc(1080*(1+0.5*({Z}))/2)*2':h='trunc(960*(1+0.5*({Z}))/2)*2':eval=frame,crop=1080:960[bot];"
+fc = (f"[0:v]crop={cw}:{ch}:{cx}:{cy},scale=1080:960,fps=60,"
+      f"zoompan=z='1.03+{ZI}':d=1:x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2':s=1080x960:fps=60,unsharp=5:5:1.0[top];"
+      f"[0:v]crop={gw}:{gh}:{gx}:{gy},scale=1080:960[bot];"
       f"[top][bot]vstack,fps=60,ass={work}/c.ass:fontsdir=/System/Library/Fonts/Supplemental[v];")
-# boom SFX na punch momentima
-boom = "+".join(f"gte(t,{p:.2f})*sin(2*PI*(55+80*exp(-12*(t-{p:.2f})))*(t-{p:.2f}))*exp(-7*(t-{p:.2f}))" for p in peaks) or "0"
-fc += f"aevalsrc='0.55*({boom})':s=48000:d={D:.2f}[sfx];[0:a]aresample=48000[ma];[ma][sfx]amix=inputs=2:normalize=0,alimiter=limit=0.95[a]"
+fc += "[0:a]anull[a]"
 subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-ss", str(S), "-t", str(D), "-i", src, "-filter_complex", fc,
                 "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p",
                 "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out], check=True)

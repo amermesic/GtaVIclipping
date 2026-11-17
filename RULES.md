@@ -16,13 +16,17 @@ Izvor: 5 streamer shortsa sa 1,3M–3,2M views (Snickerly, KaiCenat_IsBack, iboc
 - Animacija: **pop** – rijec ulazi na 135% i u 90 ms pada na 100%. Bez fade-a.
 
 ## Pokret / "stalno se nesto desava"
-- **Punch zoom** na lice na svakom glasnom momentu (+15%, vraca se za ~0,4 s).
-- **Shake** (kratak, 0,2 s) + **bijeli/zeleni flash** na hype rijecima ("SIX STARS!").
+- **Punch zoom** na lice na glasnim momentima, BLAG (+8%), samo gornja polovina. Bez shake/flash dok Amer ne odobri.
 - Jump-cut: izbaci tisinu i "uhh", nikad > 1,5 s bez promjene.
 - Opciono: neon/glow linija na spoju (Liutauras stil), motion blur na brzim rezovima.
 
 ## Zvuk
-- Original glas streamera glasno. **Bass boom** na punch zoom, whoosh na rez. Bez muzike preko govora.
+- SAMO original audio streamera. **NIKAD sinteticki/generisani SFX** (Amer: "random zvukovi", 2026-11-17). Pravi SFX samo ako Amer da fajlove.
+
+## Izvor (bitno za kvalitet)
+- Igra/trailer dolje mora biti CIST i jasan (center crop bez overlaya, chata, brojaca) – gledalac mora vidjeti na sta streamer reaguje.
+- Najbolji izvor = streamerov VOD gdje je facecam velik. Mala kamera preko trailera = mutno lice.
+- Age-restricted videi: ne koristimo Amerove cookies.
 
 ## Naslov
 - `[Streamer] [glagol] [GTA 6 stvar]! 😭` – npr. "Kai Cenat Got Hyped For 6 Stars In GTA 6! 😭🔥", "Jynxzi Finds Out GTA VI is 200GB! 💀😭". Emoji 😭💀🔥 na kraju (u naslovu DA, za razliku od opisa).
