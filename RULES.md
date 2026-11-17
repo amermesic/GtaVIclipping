@@ -1,3 +1,38 @@
+# >>> PRAVILA v2 (2026-11-17) — STREAMER KLIPOVI = OVO JE DEFAULT <<<
+Izvor: 5 streamer shortsa sa 1,3M–3,2M views (Snickerly, KaiCenat_IsBack, iboclips, Zylok, Liutauras). Frameovi: `refs/c_*.jpg`.
+
+**Brojke:** duzina **9–31 s** (prosjek 19 s), **60 fps**, 5–18 rezova, nova slika svakih ~1,5 s.
+
+## Layout
+- **Streamer GORE 50% (1080x960), igra DOLJE 50% (1080x960).** Facecam je uvecan, lice je veliko i zauzima pola ekrana.
+- NEMA naslova/boxa gore. Hook = najjaci vrisak/reakcija na **frame 1** (pocni klip usred reakcije). Naslov ide samo u YT title.
+- Igra dolje zadrzava in-game titlove (mali bijeli, dno) – to je ok.
+
+## Titlovi (najvaznije)
+- **1 RIJEC** istovremeno, **Impact** (kondenzovani bold), ALL CAPS, ~110 px na 1080x1920.
+- Pozicija: **tacno na spoju gornje i donje polovine (y=960), centrirano.**
+- Bijelo + crni outline 9 px + sjena. Akcentne rijeci **zute `#FFD400`**, psovke **ljubicaste `#B400FF`** i cenzurisane `F***` / `SH*`.
+- Akcije/zvukovi u zvjezdicama zelenom: `*SHOCKED*`, `*TRIPPING*`, `*3PM*`.
+- Animacija: **pop** – rijec ulazi na 135% i u 90 ms pada na 100%. Bez fade-a.
+
+## Pokret / "stalno se nesto desava"
+- **Punch zoom** na lice na svakom glasnom momentu (+15%, vraca se za ~0,4 s).
+- **Shake** (kratak, 0,2 s) + **bijeli/zeleni flash** na hype rijecima ("SIX STARS!").
+- Jump-cut: izbaci tisinu i "uhh", nikad > 1,5 s bez promjene.
+- Opciono: neon/glow linija na spoju (Liutauras stil), motion blur na brzim rezovima.
+
+## Zvuk
+- Original glas streamera glasno. **Bass boom** na punch zoom, whoosh na rez. Bez muzike preko govora.
+
+## Naslov
+- `[Streamer] [glagol] [GTA 6 stvar]! 😭` – npr. "Kai Cenat Got Hyped For 6 Stars In GTA 6! 😭🔥", "Jynxzi Finds Out GTA VI is 200GB! 💀😭". Emoji 😭💀🔥 na kraju (u naslovu DA, za razliku od opisa).
+
+## Alat
+`python3 scripts/viral_short.py SRC START END CAM_x:y:w:h GAME_x:y:w:h out.mp4`
+(CAM i GAME crop moraju biti omjer 9:8; punch/flash/boom automatski po glasnoci.)
+
+---
+
 # GTA VI Clipping — PRAVILA (citaj prije svakog klipa)
 
 Izvor: analiza 6 referentnih shortsa (2026-11-17). Frame-stripovi u `refs/`.
