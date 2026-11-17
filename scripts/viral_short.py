@@ -25,7 +25,7 @@ peaks = sorted(peaks)[:12]
 
 # titlovi: 1 rijec, pop, boja po glasnoci / tipu rijeci
 words = [w for s in WhisperModel("small", compute_type="int8").transcribe(a, word_timestamps=True)[0] for w in s.words]
-SWEAR = re.compile(r"(fuck|shit|damn|bitch|hell|ass)", re.I)
+SWEAR = re.compile(r"(fuck|shit|damn|bitch|hell|ass|nigg)", re.I)
 HYPE = {"GOD", "WHAT", "NO", "YES", "BRO", "GTA", "SIX", "6", "WAIT", "NAH", "WHY", "XBOX", "PLAYSTATION", "KFC", "KEANU", "REEVES", "LIT"}
 def tt(x): return f"{int(x//3600)}:{int(x%3600//60):02}:{x%60:05.2f}"
 ev = []

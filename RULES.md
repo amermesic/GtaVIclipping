@@ -1,7 +1,19 @@
 # >>> PRAVILA v2 (2026-11-17) — STREAMER KLIPOVI = OVO JE DEFAULT <<<
 Izvor: 5 streamer shortsa sa 1,3M–3,2M views (Snickerly, KaiCenat_IsBack, iboclips, Zylok, Liutauras). Frameovi: `refs/c_*.jpg`.
 
-**Brojke:** duzina **9–31 s** (prosjek 19 s), **60 fps**, 5–18 rezova, nova slika svakih ~1,5 s.
+**Brojke (refs):** 9–31 s, 60 fps, nova slika ~1,5 s. **ALI vazi KONTEKST pravilo ispod: 30–60 s sa cijelom pricom.**
+
+## KONTEKST PRAVILA (Amer 2026-11-18) — OBAVEZNO, prije svega ostalog
+1. **Duzina 30–60 s** (izuzetno 25 s ako je cijela prica unutra). 15 s = nista se ne desi = NE.
+2. **Cijela prica: SETUP -> BUILD -> PAYOFF.** Klip pocinje recenicom koja uvodi temu
+   ("In school, my friends hacked the school laptop..."), ne usred price. Gledalac bez ikakvog
+   predznanja mora razumjeti o cemu se prica i zasto je smijesno/ludo.
+3. **Zavrsava na payoffu** (punchline, reakcija, odgovor) — nikad usred recenice.
+4. Prije sjecenja: puni transkript izvora (`work/<src>/transcript.txt`), oznaci start price i payoff.
+5. Ako setup i payoff nisu jedan do drugog: 2 dijela spojena (jump cut), npr. najava + lista.
+6. **Test "zasto postam ovo?"**: u jednoj recenici napisi sta se desava i zasto je zanimljivo.
+   Ako ne mozes — klip se NE pravi.
+7. Hook (prvi frame) i dalje najjaci moment/izjava, ali bez gubljenja konteksta.
 
 ## Layout
 - **Streamer GORE 50% (1080x960), igra DOLJE 50% (1080x960).** Facecam je uvecan, lice je veliko i zauzima pola ekrana.
