@@ -24,7 +24,7 @@ Izvor: analiza 6 referentnih shortsa (2026-11-17). Frame-stripovi u `refs/`.
 
 ## 3. Titlovi (stil)
 **Stil A – default (SeagullBro / Jynxzi):** 1–3 rijeci, word-by-word, centrirano (~45–55% visine).
-- Font: **Montserrat ExtraBold / Arial Black**, ALL CAPS za streamere, ~70–90 px na 1080x1920.
+- Font: **Arial Black** (Montserrat variable izlazi tanak u libass), ALL CAPS, 80 px; hook box gore bijeli 74 px prve 3.5 s na 1080x1920.
 - Boja: bijela; **kljucna rijec zuta `#FFE600`** (svaka 2–3 rijec). Crni outline 6–8 px + mekana sjena.
 - Za streamer klipove: zuta/zelena highlight na emotivnim rijecima (OH MY GOD, NO WAY).
 
