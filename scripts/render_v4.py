@@ -1,8 +1,8 @@
 import subprocess, os, textwrap
 from concurrent.futures import ThreadPoolExecutor
 K="work/kai/src.mp4"; S="work/speed/src.mp4"; KL="work/live/kai_a.mp4"; TL="work/live/tgg.mp4"
-KC="510:280:900:800"; KG="420:60:1080:960"; KT="40:425:250:222"; KG2="420:60:925:960"; SC="40:430:640:569"; SG="905:20:770:684"
-LC="0:432:392:222"; LG="440:0:1041:1080"; TC="18:275:211:210"; TG="500:0:694:720"
+KC="510:280:900:800"; KG="420:60:1080:960"; KT="40:425:250:222"; KG2="420:60:792:960"; SC="40:430:640:569"; SG="905:20:770:684"
+LC="0:432:392:222"; LG="440:0:890:1080"; TC="18:275:211:210"; TG="500:0:593:720"
 # (src,start,end,cam,game,out,gs,layout,hook)
 J=[
 (S,113,150,SC,SG,"s_keanu_kfc","-",1,"SPEED PAUSED THE GTA 6 TRAILER AND FOUND *KFC*"),
@@ -28,7 +28,7 @@ def wrap(h):
     # vrati *..* oznake: wrap po rijecima originala
     words=h.split(); out=[];cur=""
     for w in words:
-        if len(cur.replace("*",""))+len(w.replace("*",""))+1>26 and cur: out.append(cur);cur=w
+        if len(cur.replace("*",""))+len(w.replace("*",""))+1>21 and cur: out.append(cur);cur=w
         else: cur=(cur+" "+w).strip()
     out.append(cur); return "\\N".join(out)
 def run(j):

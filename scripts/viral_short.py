@@ -26,7 +26,7 @@ peaks = sorted(peaks)[:12]
 
 # titlovi: 1 rijec, pop, boja po glasnoci / tipu rijeci
 words = [w for s in WhisperModel("small", compute_type="int8").transcribe(a, word_timestamps=True)[0] for w in s.words]
-LAYOUT2 = os.environ.get("LAYOUT") == "2"; CAPY = 830 if LAYOUT2 else 960
+LAYOUT2 = os.environ.get("LAYOUT") == "2"; CAPY = 700 if LAYOUT2 else 960
 SWEAR = re.compile(r"(fuck|shit|damn|bitch|hell|ass|nigg)", re.I)
 HYPE = {"GOD", "WHAT", "NO", "YES", "BRO", "GTA", "SIX", "6", "WAIT", "NAH", "WHY", "XBOX", "PLAYSTATION", "KFC", "KEANU", "REEVES", "LIT"}
 def tt(x): return f"{int(x//3600)}:{int(x%3600//60):02}:{x%60:05.2f}"
@@ -41,13 +41,13 @@ for i, w in enumerate(words):
     if i + 1 < len(words): end = min(end + 0.15, words[i+1].start)
     ev.append(f"Dialogue: 0,{tt(w.start)},{tt(end)},W,,0,0,0,,{{\\pos(540,{CAPY})\\c{col}\\fscx135\\fscy135\\t(0,90,\\fscx100\\fscy100)}}{txt}")
 hk = re.sub(r"\*(.+?)\*", r"{\\c&H00D4FF&}\1{\\c&HFFFFFF&}", HOOK.replace("\\N", "\\N"))
-if HOOK: ev.append(f"Dialogue: 0,0:00:00.00,{tt(D)},H,,0,0,0,,{{\\pos(540,{40 if LAYOUT2 else 150})\\an8}}{hk}")
+if HOOK: ev.append(f"Dialogue: 0,0:00:00.00,{tt(D)},H,,0,0,0,,{{\\pos(540,140)\\an8\\fscx118\\fscy118\\t(0,160,\\fscx100\\fscy100)}}{hk}")
 ass = f"""[Script Info]
 PlayResX: 1080
 PlayResY: 1920
 [V4+ Styles]
 Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
-Style: H,Impact,60,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,1,0,1,6,3,8,0,0,0,1
+Style: H,Impact,88,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,1,0,1,10,4,8,0,0,0,1
 Style: W,Impact,112,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,1,0,1,9,4,5,0,0,0,1
 [Events]
 Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
@@ -67,8 +67,8 @@ if LAYOUT2:
           f"[c2]scale=-2:610:flags=lanczos,unsharp=5:5:0.9[cfg];[cbg][cfg]overlay=(W-w)/2:0[cam];"
           f"[{1 if GS else 0}:v]crop={gw}:{gh}:{gx}:{gy},hqdn3d=1:1:3:3,split[g1][g2];"
           f"[g1]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=40:5,eq=brightness=-0.3[bg];"
-          f"[g2]scale=2160:2240:flags=lanczos,zoompan=z='1.0+{ZI}':d=1:x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2':s=1080x1120:fps=60,unsharp=5:5:0.7[gm];"
-          f"[bg][gm]overlay=0:800[b1];[b1][cam]overlay=0:190,fps=60,ass={work}/c.ass:fontsdir=/System/Library/Fonts/Supplemental[v];")
+          f"[g2]scale=2160:2620:flags=lanczos,zoompan=z='1.0+{ZI}':d=1:x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2':s=1080x1310:fps=60,unsharp=5:5:0.7[gm];"
+          f"[bg][gm]overlay=0:610[b1];[b1][cam]overlay=0:0,fps=60,ass={work}/c.ass:fontsdir=/System/Library/Fonts/Supplemental[v];")
 else:
     fc = (f"[0:v]crop={cw}:{ch}:{cx}:{cy},hqdn3d=2:2:5:5,scale=2160:1920:flags=lanczos,"
           f"zoompan=z='1.03+{ZI}':d=1:x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2':s=1080x960:fps=60,unsharp=7:7:1.3:5:5:0.0[top];"
