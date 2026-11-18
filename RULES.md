@@ -1,3 +1,9 @@
+## UPDATE 2026-11-18 (Amer): HOOK-TEXT OBEN + KAMERA-QUALITAET
+- Gore mali clickbait hook tekst (2 reda, Impact 60, bijelo, kljucna rijec zuta) = sta se desava + zasto gledati, npr. "KAI CAN'T EVEN *STEAL* A CAR IN GTA 6". Bez emojija (Impact ih ne prikazuje). Ovo PREPISUJE staro "nema naslova gore".
+- Mala cam (<400 px sirine u izvoru): `LAYOUT=2` (cam 610 px visine + igra velika ispod). Velika cam (>=600 px): stari 50/50 layout. Skaliranje uvijek lanczos + hqdn3d + unsharp.
+- Batch: `scripts/render_v4.py`. Fajlovi imenovani Reel1(kai), Reel2(streamer) u `out/REELS`.
+- Naslov/opis kao kod viralnih: `[Streamer] + glagol (Finds Out/Reacts To/Went WRONG) + konkretna stvar + emoji`; opis = naslov + 3-4 hashtaga.
+
 # >>> PRAVILA v2 (2026-11-17) — STREAMER KLIPOVI = OVO JE DEFAULT <<<
 Izvor: 5 streamer shortsa sa 1,3M–3,2M views (Snickerly, KaiCenat_IsBack, iboclips, Zylok, Liutauras). Frameovi: `refs/c_*.jpg`.
 
