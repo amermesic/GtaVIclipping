@@ -35,6 +35,9 @@ Cam izvor je mali (~250-390 px) pa se mora povecati; zato je cam 610 px visine (
 - Samo REELS folder (`out/REELS`), stari render obrisati kad se napravi novi.
 - Imenovanje: Reel1, Reel2... po rednom broju.
 
+## Windows / novi kompjuter
+Skripte su pisane na Macu. Za Windows: ffmpeg iz PATH-a (ne `brew`), `fontsdir=C\\:/Windows/Fonts` u ass filteru (escape dvotacke), `$env:LAYOUT="2"` u PowerShellu, `python` umjesto `python3`. Svi naslovi su u TITLES.md.
+
 ## Sta je do sada napravljeno
 Reel1-16 (Kai, TGG, Speed, bug kompilacija, 13 years), Reel17-24 (Speed VOD + xQc radio), Reel25-29 (Speed Lester, sad ending, xQc QB, radio oglas, streamer viralna slika). Mp4 fajlovi nisu u repou (.gitignore), samo skripte i znanje.
 
